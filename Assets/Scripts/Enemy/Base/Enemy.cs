@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMovable, ITriggerCheckabl
     public Rigidbody2D bulletPrefab;
     public ObjectPool bulletPool;
 
+    public AudioClip ShotSound;
+
     void Awake()
     {
         StateMachine = new EnemyStateMachine();

@@ -55,7 +55,7 @@ public class EnemyAttackState : EnemyState
         timer += Time.deltaTime;
     }
 
-    //ObjectPooling
+    //ObjectPoolinglaser shot sfx
     void Attack(Vector2 dir)
     {
         GameObject bullet = bulletPool.GetObject();
@@ -65,6 +65,8 @@ public class EnemyAttackState : EnemyState
 
         Rigidbody2D brb = bullet.GetComponent<Rigidbody2D>();
         brb.linearVelocity = dir * bulletSpeed;
+
+        AudioManager.Instance.PlaySound(enemy.ShotSound);
 
         bulletPool.StartCoroutine(bulletPool.DeactivateBullet(bullet));
     }
